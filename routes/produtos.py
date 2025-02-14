@@ -19,8 +19,8 @@ def adicionar_produto(produto: Produto):
     return {"mensagem": "Produto adicionado com sucesso"}
 
 
-@router.put("/produtos/{produtoid}", dependencies=[ Depends(obter_usuario_logado)])
-def modificar_produto( produto_id: int, produto: Produto):
+@router.put("/produtos/", dependencies=[ Depends(obter_usuario_logado)])
+def modificar_produto(produto: Produto):
     
     for index, p in enumerate(lista_produtos['produtos']):
         if p['id'] == produto_id:
@@ -30,11 +30,11 @@ def modificar_produto( produto_id: int, produto: Produto):
     raise HTTPException(status_code= 404, detail="Produto não encontrado")
 
 
-@router.delete("/produtos/{produtoid}", dependencies=[Depends(obter_usuario_logado)])
-def remover_produto(produtoid : int):
+@router.delete("/produtos/{produto_id}", dependencies=[Depends(obter_usuario_logado)])
+def remover_produto(produto_id : int):
 
     for index, p in enumerate(lista_produtos['produto']):
-        if p['id'] == produtoid:
+        if p['id'] == produto_id:
             del lista_produtos['produtos'][index]
             return {'mensagem': 'Produto removido com sucesso'}
         
