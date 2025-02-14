@@ -23,7 +23,7 @@ def adicionar_produto(produto: Produto):
 def modificar_produto(produto: Produto):
     
     for index, p in enumerate(lista_produtos['produtos']):
-        if p['id'] == produto_id:
+        if p['id'] == produto['id']:
             lista_produtos['produtos'][index] = produto.dict()
             return({'mensagem':'Produto atualizado com sucesso'})
         

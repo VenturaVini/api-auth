@@ -1,16 +1,21 @@
 import requests
 
-url = 'https://api-auth-vini.up.railway.app/'
 
+separador = '-----------------------------------------------------------------------------------'
+
+url = 'https://api-auth-vini.up.railway.app/'
 
 coletar = requests.get(url=url)
 
 print(coletar.json())
 
-item_modificar = 2
-url_modificar = f'{url}produtos/{item_modificar}'
 
-token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aW5pIiwiZXhwIjoxNzM5NTM0MzMwfQ.IkyrsgBLacsMNiA-76NmP0lmDT6q9BeLE2yWjyckkjI'
+print(separador)
+
+
+url_modificar = f'{url}produtos/'
+
+token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aW5pIiwiZXhwIjoxNzM5NTM1MzgyfQ.UZsnc03AzMQXDriZdv3RXkmP6X1r8eLGM3UX49C1u_A'
 
 # Cabeçalhos
 headers = {
@@ -31,6 +36,7 @@ alterar = requests.put(url= url_modificar, headers= headers, json= dados )
 print(alterar.json())
 
 
+print(separador)
 
 
 coletar = requests.get(url=url)
