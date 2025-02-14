@@ -20,7 +20,7 @@ def adicionar_produto(produto: Produto):
 
 
 @router.put("/produtos/{produtoid}", dependencies=[ Depends(obter_usuario_logado)])
-def modificar_produto( produto_id: int, produto: dict):
+def modificar_produto( produto_id: int, produto: Produto):
     
     for index, p in enumerate(lista_produtos['produtos']):
         if p['id'] == produto_id:
