@@ -1,11 +1,13 @@
 import requests
 
 # URL do endpoint
-url_get = "http://localhost:7000/"
-url_post = "http://localhost:7000/produtos/"
+url_get = "https://api-auth-vini.up.railway.app/"
+url_post = "https://api-auth-vini.up.railway.app/produtos/"
 
 # Token JWT gerado no /auth/login
-token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aW5pIiwiZXhwIjoxNzM5NTA2Mjg4fQ.IwfIJF6WpzhJ4vrR_8wRv73_patPGaHeJHpRAiutsDw"  # Substitua pelo token gerado
+
+token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aW5pIiwiZXhwIjoxNzM5NTA3MzkxfQ.tMgCWsi57w3bcGVoa7zdl79f3-Q9Pb1eXcngrRxV-Qc"  # Substitua pelo token gerado
+token = 'Bearer ' + token
 
 # Cabeçalhos da requisição
 headers = {
@@ -22,9 +24,9 @@ print("Response JSON:", response_get.json())
 # ========== 2. Fazer o POST para adicionar um novo produto ==========
 produto = {
     "id": 3,
-    "nome": "xbox",
-    "descricao": "novo",
-    "preco": 1,
+    "nome": "Drew",
+    "descricao": "Drewwwwwwwwwwwwwwwwwwww",
+    "preco": 105483484.76,
     "estoque": 1
 }
 
