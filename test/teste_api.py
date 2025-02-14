@@ -15,7 +15,7 @@ print(separador)
 
 url_modificar = f'{url}produtos/'
 
-token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aW5pIiwiZXhwIjoxNzM5NTM1MzgyfQ.UZsnc03AzMQXDriZdv3RXkmP6X1r8eLGM3UX49C1u_A'
+token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aW5pIiwiZXhwIjoxNzM5NTM1Njk5fQ.PNqaHnmrLLhrQGtcnDHV2kwtcmcTdL1LaJqzLdGu7bE"
 
 # Cabeçalhos
 headers = {
@@ -32,6 +32,9 @@ dados = {
 }
 
 alterar = requests.put(url= url_modificar, headers= headers, json= dados )
+
+print("Status Code:", alterar.status_code)
+print("Response Text:", alterar.text)
 
 print(alterar.json())
 
