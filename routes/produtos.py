@@ -23,14 +23,14 @@ def adicionar_produto(produto: Produto):
 def modificar_produto( produto_id: int, produto: dict):
     
     for index, p in enumerate(lista_produtos['produtos']):
-        if p['id'] == produto_id
+        if p['id'] == produto_id:
             lista_produtos['produtos'][index] = produto.dict()
             return({'mensagem':'Produto atualizado com sucesso'})
         
     raise HTTPException(status_code= 404, detail="Produto não encontrado")
 
 
-@router.delete("/produtos/{produtoid}"), dependencies=[Depends(obter_usuario_logado)])
+@router.delete("/produtos/{produtoid}", dependencies=[Depends(obter_usuario_logado)])
 def remover_produto(produtoid : int):
 
     for index, p in enumerate(lista_produtos['produto']):
