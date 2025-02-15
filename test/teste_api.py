@@ -15,7 +15,7 @@ print(separador)
 
 url_modificar = f'{url}produtos/'
 
-token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aW5pIiwiZXhwIjoxNzM5NTM1Njk5fQ.PNqaHnmrLLhrQGtcnDHV2kwtcmcTdL1LaJqzLdGu7bE"
+token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkcmV3IiwiZXhwIjoxNzM5NTQ1Njk4fQ.pYihtD41G023qOrr7yXztdsGMdqGPWLQvXT4hycnU8A"
 
 # Cabeçalhos
 headers = {
@@ -25,10 +25,10 @@ headers = {
 
 dados = {
     'id' : 2,
-    'nome': 'Iphone 15 128gb',
-    'descricao': 'Lacrado 128GB 5G',
-    'preco': 4500,
-    'estoque': 26
+    'nome': 'Iphone 20 128gb',
+    'descricao': 'ainda vai existir',
+    'preco': 1000000,
+    'estoque': 1
 }
 
 alterar = requests.put(url= url_modificar, headers= headers, json= dados )

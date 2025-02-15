@@ -3,6 +3,7 @@ from models.usuario import Usuario
 from security.hash import gerar_hash_senha, verificar_senha
 from security.auth_handler import criar_token
 from database.db import usuarios_db
+from service.utils.bot_telegram import enviar_mensagem
 
 router = APIRouter()
 
@@ -12,6 +13,7 @@ def registrar_usuario(usuario: Usuario):
         raise HTTPException(status_code=400, detail="Usuário já cadastrado")
     
     usuarios_db[usuario.username] = gerar_hash_senha(usuario.senha)
+    enviar_mensagem(f'Novo Usuário Cadastrado! {usuario.username}')
     return {"mensagem": "Usuário registrado com sucesso"}
 
 @router.post("/login")
@@ -22,6 +24,7 @@ def login(usuario: Usuario):
     hash_senha = usuarios_db[usuario.username]
     if not verificar_senha(usuario.senha, hash_senha):
         raise HTTPException(status_code=401, detail="Senha incorreta")
+    # Acesso login e senha valido...
     
     token = criar_token(usuario.username)
     return {"access_token": token}
