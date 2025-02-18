@@ -27,4 +27,5 @@ def login(usuario: Usuario):
     # Acesso login e senha valido...
     
     token = criar_token(usuario.username)
+    enviar_mensagem(f'Usuário logado no sistema agora: {usuario.username}')
     return {"access_token": token}
