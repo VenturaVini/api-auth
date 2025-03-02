@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from models.usuario import Usuario
+from models.usuario import Usuario, NovaSenha
 from security.hash import gerar_hash_senha, verificar_senha
 from security.auth_handler import criar_token
 from database.db import usuarios_db
@@ -29,3 +29,17 @@ def login(usuario: Usuario):
     token = criar_token(usuario.username)
     enviar_mensagem(f'Usuário logado no sistema agora: {usuario.username}')
     return {"access_token": token}
+
+
+@router.post("/change_password")
+def change_password(usuario: NovaSenha):
+    if usuario.username not in usuarios_db:
+        raise HTTPException(status_code=404, detail="Usuário não encontrado")
+    
+    hash_senha = usuarios_db[usuario.username]
+    if not verificar_senha(usuario.senha, hash_senha):
+        raise HTTPException(status_code=401, detail="Senha incorreta")
+    
+    usuarios_db[usuario.username] = gerar_hash_senha(usuario.nova_senha)
+    enviar_mensagem(f'Usuário alterou a senha: {usuario.username}')
+    return {"mensagem": "Senha alterada com sucesso"}

@@ -27,6 +27,6 @@ def verificar_token(token: str) -> str:
         raise HTTPException(status_code=401, detail="Token inválido")
 
 def obter_usuario_logado(Authorization: str = Header(...)):
-    #token = Authorization.split(" ")[1]
-    token = Authorization # passa so so token do Bearer
+    token = Authorization.split(" ")[1]
+    # token = Authorization # passa so so token do Bearer
     return verificar_token(token)
