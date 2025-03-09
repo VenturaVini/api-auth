@@ -45,3 +45,12 @@ print(separador)
 coletar = requests.get(url=url)
 
 print(coletar.json())
+
+url_modificar = f'{url}produtos/2'
+
+deletar = requests.delete(url= url_modificar, headers= headers )
+
+
+coletar = requests.get(url=url)
+
+print(coletar.json())

@@ -33,7 +33,7 @@ def modificar_produto(produto: Produto):
 @router.delete("/produtos/{produto_id}", dependencies=[Depends(obter_usuario_logado)])
 def remover_produto(produto_id : int):
 
-    for index, p in enumerate(lista_produtos['produto']):
+    for index, p in enumerate(lista_produtos['produtos']):
         if p['id'] == produto_id:
             del lista_produtos['produtos'][index]
             return {'mensagem': 'Produto removido com sucesso'}
