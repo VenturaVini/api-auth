@@ -1,3 +1,5 @@
+const API_URL = 'http://45.77.150.143:7200';
+
 // Exibir mensagens amigáveis
 function showMessage(message, type = 'success') {
     const msgDiv = document.createElement('div');
@@ -22,7 +24,7 @@ document.getElementById('login-form')?.addEventListener('submit', function(event
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
 
-    fetch('http://localhost:7200/auth/login', {
+    fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, senha: password })
@@ -54,7 +56,7 @@ document.getElementById('signup-form')?.addEventListener('submit', function(even
     const username = document.getElementById('signup-username').value;
     const password = document.getElementById('signup-password').value;
 
-    fetch('http://localhost:7200/auth/register', {
+    fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, senha: password })
@@ -86,7 +88,7 @@ document.getElementById('change-password-form')?.addEventListener('submit', func
     const currentPassword = document.getElementById('current-password').value;
     const newPassword = document.getElementById('new-password').value;
 
-    fetch('http://localhost:7200/auth/change_password', {
+    fetch(`${API_URL}/auth/change_password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, senha: currentPassword, nova_senha: newPassword })
@@ -136,7 +138,7 @@ document.getElementById('adicionar-produto-form')?.addEventListener('submit', fu
     }
 
     // Envio do produto para o back-end com o token no cabeçalho
-    fetch('http://localhost:7200/produtos/', {
+    fetch(`${API_URL}/produtos/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -190,7 +192,7 @@ document.getElementById('alterar-produto-form')?.addEventListener('submit', func
     }
 
     // Envio do produto para o back-end com o token no cabeçalho
-    fetch('http://localhost:7200/produtos/', {
+    fetch(`${API_URL}/produtos/`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -235,7 +237,7 @@ document.getElementById('deletar-produto-form')?.addEventListener('submit', func
     }
 
     // Envio do produto para o back-end com o token no cabeçalho
-    fetch(`http://localhost:7200/produtos/${produtoId}`, {
+    fetch(`${API_URL}/produtos/${produtoId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
