@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Login</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- Link para o arquivo CSS -->
     <script src="js/app.js" defer></script>
@@ -20,6 +21,45 @@
                 <button type="submit" class="btn">Entrar</button>
             </form>
             <p class="signup-link">Não tem uma conta? <a href="register.html">Registre-se aqui</a></p>
+=======
+    <title>Autenticação Moderna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="app.js" defer></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-lg">
+        <h1 class="text-2xl font-bold text-center text-gray-700">Autenticação</h1>
+        
+        <!-- Login -->
+        <div>
+            <h2 class="text-xl font-semibold text-gray-600">Login</h2>
+            <form id="login-form" class="mt-4 space-y-4">
+                <input type="text" id="login-username" placeholder="Nome de Usuário" required class="w-full p-2 border rounded">
+                <input type="password" id="login-password" placeholder="Senha" required class="w-full p-2 border rounded">
+                <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Entrar</button>
+            </form>
+        </div>
+        
+        <!-- Cadastro -->
+        <div>
+            <h2 class="text-xl font-semibold text-gray-600">Cadastrar Novo Usuário</h2>
+            <form id="signup-form" class="mt-4 space-y-4">
+                <input type="text" id="signup-username" placeholder="Nome de Usuário" required class="w-full p-2 border rounded">
+                <input type="password" id="signup-password" placeholder="Senha" required class="w-full p-2 border rounded">
+                <button type="submit" class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600">Cadastrar</button>
+            </form>
+        </div>
+        
+        <!-- Alteração de Senha -->
+        <div>
+            <h2 class="text-xl font-semibold text-gray-600">Alterar Senha</h2>
+            <form id="change-password-form" class="mt-4 space-y-4">
+                <input type="text" id="change-username" placeholder="Nome de Usuário" required class="w-full p-2 border rounded">
+                <input type="password" id="current-password" placeholder="Senha Atual" required class="w-full p-2 border rounded">
+                <input type="password" id="new-password" placeholder="Nova Senha" required class="w-full p-2 border rounded">
+                <button type="submit" class="w-full bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600">Alterar Senha</button>
+            </form>
+>>>>>>> 7d14a31494c02b0fba424bfb6e11d352e0a8c0e1
         </div>
     </div>
 </body>
